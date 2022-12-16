@@ -2,6 +2,7 @@
 const ADD_TODO = "ADD_TODO";
 const DELETE_TODO = "DELETE_TODO";
 const CHANGE_STATUSE = "CHANGE_STATUSE";
+const TODO_ID = "TODO_ID";
 
 //action creator
 
@@ -20,16 +21,30 @@ export const changeStatus = (payload) => ({
   payload,
 });
 
+export const todoId = (payload) => ({
+  type: TODO_ID,
+  payload,
+});
+
 //initialState
 const initialState = {
   todos: [
     {
       id: 1,
-      title: "React",
-      body: "Study",
+      title: "Todo Sample",
+      body: "Working",
+      date: "xxxx년 xx월 xx일",
       isDone: false,
     },
+    {
+      id: 2,
+      title: "Todo Sample",
+      body: "Done",
+      date: "xxxx년 xx월 xx일",
+      isDone: true,
+    },
   ],
+  num: 3,
 };
 
 //reducer
@@ -55,6 +70,11 @@ const todos = (state = initialState, action) => {
             return { ...todo };
           }
         }),
+      };
+    case TODO_ID:
+      return {
+        ...state,
+        num: state.num + action.payload,
       };
     default:
       return state;

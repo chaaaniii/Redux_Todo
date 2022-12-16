@@ -3,17 +3,17 @@ import styled from "styled-components";
 
 const HdContainer = styled.div`
   display: flex;
+  align-items: center;
   justify-content: space-between;
   align-items: center;
   height: 50px;
 
   margin: 10px 20px;
   font-size: 20px;
-  font-weight: 500;
+  font-weight: 1000;
   line-height: 24px;
 
-  border: 2px solid black;
-  padding: 10px;
+  padding: 10px 30px;
 `;
 
 function Header() {
